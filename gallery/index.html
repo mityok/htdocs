@@ -1,14 +1,34 @@
 <html ng-app="myApp">
 <head>
 <script src="js/angular.min.js"></script>
+<script src="js/aes.js"></script>
 <script src="js/main.js"></script>
 <style>
 body{
 color:#eee;
 }
+a.icons img{
+	opacity:.1;
+}
+a.icons{
+	position:relative;
+}
+.close{
+	position:absolute;
+	bottom:0;
+	right:0;
+	padding:4px;
+	background-color:rgba(255,0,0,.2);
+	cursor:pointer;
+	display:inline-block;
+}
 </style>
 </head>
 <body ng-controller="HelloCtrl">
-<h1>Hello {{ something }}</h1>
+<input type="password" ng-model="pass" autofocus/>
+<div><button ng-repeat="galleries in gal" ng-click="readGallery($index)" ng-disabled="selected === $index">Gallery {{$index+1}}</button></div>
+<div>
+<a class="icons" ng-repeat="img in gallery"><img ng-src="{{img}}"><span class="close" ng-click="removeGallery(img)">X</span></a>
+</div>
 </body>
 </html>

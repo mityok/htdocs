@@ -9,9 +9,9 @@ $html = file_get_html($_GET["url"]);
 foreach($html->find('img') as $element) {
        $src=$element->src;
        $rest = substr($src, 0, -5);
-       $pos = strrpos($src, ".jpg");
+       $pos = strrpos($src, "1.jpg");
 	if ($pos !== false) { 
-    array_push($arr,$rest);
+		array_push($arr,$rest);
 	}
 }
 
